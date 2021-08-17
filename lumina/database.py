@@ -73,6 +73,10 @@ class LuminaDatabase(object):
         db_entry["metadata"].append(metadata)
         db_entry["popularity"] += 1
 
+        # save database
+        self.save()
+        self.db_file.flush()
+
         return new_sig
 
     def pull(self,signature):
